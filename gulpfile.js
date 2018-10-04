@@ -1,9 +1,10 @@
-const gulp = require('gulp');
-const minifyimg = require('gulp-image');
-const browserSync = require('browser-sync');
-const sass = require('gulp-sass');
-const minifycss = require('gulp-clean-css');
-const uglify = require('gulp-uglify');
+const browserSync = require('browser-sync'); // To live reload application
+const gulp = require('gulp'); // To use gulp
+const rename = require('gulp-rename');  // To rename minified files
+const minifyimg = require('gulp-image'); // To minify images
+const sass = require('gulp-sass'); // To compile sass
+const minifycss = require('gulp-clean-css'); // To minify css
+const uglify = require('gulp-uglifyes'); // To minify js ES6
 
 // Serve
 gulp.task('serve', () => {
@@ -44,14 +45,23 @@ gulp.task('minifycss', () => {
     return gulp.src(['src/scss/*.scss'])
                .pipe(sass().on('error', sass.logError))
                .pipe(minifycss())
+               .pipe(rename((path) => {
+                    path.extname = '.min.css';
+                }))
                .pipe(gulp.dest('dist/css'));
 });
 
 // Minify JS
 gulp.task('minifyjs', () => {
-    return gulp.src('src/js/*.js')
-               .pipe(uglify())
-               .pipe(gulp.dest('dist/js'))
+    return gulp.src(['src/js/*.js'])
+                .pipe(uglify({ 
+                    mangle: false, 
+                    ecma: 6 
+                }))
+                .pipe(rename((path) => {
+                    path.extname = '.min.js';
+                }))
+                .pipe(gulp.dest('dist/js'))
 })
 
 // Optimize images
@@ -66,4 +76,3 @@ gulp.task('minify', ['copyhtml', 'copyfonts', 'minifycss', 'minifyjs', 'imagemin
 
 // Default task
 gulp.task('default', ['serve']);
-
