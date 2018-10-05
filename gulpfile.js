@@ -17,6 +17,13 @@ gulp.task('serve', () => {
     gulp.watch(['src/*.html']).on('change', browserSync.reload);
 })
 
+
+// Copy Favicon
+gulp.task('copyfavicon', () => {
+    return gulp.src('src/*.ico')
+               .pipe(gulp.dest('dist'));
+});
+
 // Copy All HTML files
 gulp.task('copyhtml', () => {
     return gulp.src('src/*.html')
