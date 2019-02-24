@@ -1,19 +1,26 @@
 $body-bg: lightgrey;
-$main-font: 'Arial';
+
 
 $primary: #3F69AA;
 $secondary: #fff;
 // Others variables ...
 
 @font-face {
-    font-family: 'Montserrat';
+    font-family: 'ProductSansBold';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/Montserrat.woff2') format('woff2');
+    src: url('../fonts/ProductSansBold.ttf');
+}
+
+@font-face {
+    font-family: 'ProductSans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/ProductSansRegular.ttf');
 }
 
 * {
-    font-family: 'Montserrat';
+    font-family: 'ProductSans';
 }
 
 body {

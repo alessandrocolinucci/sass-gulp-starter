@@ -4,8 +4,7 @@
   "description": "Builer plate for sass and gulp projects",
   "main": "index.js",
   "scripts": {
-    "build": "gulp minify",
-    "start": "gulp"
+    "start": "gulp watch"
   },
   "repository": {
     "type": "git",
@@ -22,15 +21,9 @@
   },
   "homepage": "https://github.com/alessandrocolinucci/sass-gulp-starter#readme",
   "devDependencies": {
-    "browser-sync": "^2.24.7",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.10.0",
-    "gulp-image": "^4.3.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.1",
-    "gulp-uglifyes": "^0.2.1"
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2"
   },
-  "dependencies": {
-    "lodash": "^4.17.11"
-  }
+  "dependencies": {}
 }
